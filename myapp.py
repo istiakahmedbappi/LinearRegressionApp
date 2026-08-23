@@ -9,3 +9,4 @@ st.subheader("Data Science learning")
 
 #sidebar
 st.sidebar.header("Upload CSV Data or use sample")
+st.sidebar.checkbox("Use example Dataset")
