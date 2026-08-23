@@ -35,5 +35,6 @@ if len(numeric_cols)<2:
   st.stop()
  
 st.selectbox("Select target variable", numeric_cols)
+features=st.multisect("Select input feature columns",[col for col in numeric_cols if col !=target])
 
 
