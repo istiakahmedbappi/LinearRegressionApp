@@ -1,6 +1,6 @@
 streamlit
 pandas
 numpy
-seaboarn
+seaborn
 matplotlib
 sikit-learn
