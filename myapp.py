@@ -5,6 +5,8 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error,r2_score
 st.title("Linear Regression Web Application")
 st.subheader("Data Science learning")
 
@@ -39,3 +41,18 @@ features = st.multiselect("Select input feature columns", [col for col in numeri
 if len (features)==0:
   st.write("Please select atleast one feature")
   st.stop()
+df=df[features+ [target]].dropna()
+X=df[features]
+y=df[target]
+
+scaler=StandardScaler()
+X_scaled=scaler.fit_transform(X)
+X_train, X_test, y_train, y_test= train_test_split(X_scaled,y,test_size=0.2,random_state=42)
+model=LinearRegression()
+model.fit(Xtrain,y_train)
+y_pred=model.predict(X_test)
+mse=mean_squared_error(y_test, y_pred)
+r2=r2_score(y_test,y_pred)
+st.subheader("Model Evaluation")
+st.write(f"Mean Squread Error: {mse: .2f})
+st.write(f"R^2Score: Score: {r2:.2f}" 
