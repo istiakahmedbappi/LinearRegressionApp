@@ -34,6 +34,6 @@ if len(numeric_cols)<2:
   st.error("Need at least two numeric columns for regression.")
   st.stop()
  
-st.selectbox("Select target variable", numeric_cols)
+target = st.selectbox("Select target column", numeric_cols)
 features = st.multiselect("Select input feature columns", [col for col in numeric_cols if col != target])
 
