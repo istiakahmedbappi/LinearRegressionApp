@@ -5,5 +5,5 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 st.title("Linear Regression Web Application")
-st.subheader("Data dcience learning")
+st.subheader("Data Science learning")
          
