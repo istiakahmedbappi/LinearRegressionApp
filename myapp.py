@@ -72,7 +72,7 @@ for feature in features:
         valid_input = False
 if st.button("Predict"):
   if valid_input:
-    input_df=pd.Dataframe([input_data])
+    input_df = pd.DataFrame([input_data])
     input_scaled=scaler.transform(input_df)
     prediction=model.predict(input_scaled)
     st.success(f"Predicted {target}: {prediction[0]:.2f}")
