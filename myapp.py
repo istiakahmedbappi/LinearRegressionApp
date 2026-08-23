@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas
 import numpy
+import seaborn.sns
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
@@ -10,3 +11,16 @@ st.subheader("Data Science learning")
 #sidebar
 st.sidebar.header("Upload CSV Data or use sample")
 use_example=st.sidebar.checkbox("Use example Dataset")
+
+#Load data
+if use_example:
+  df=sns.load_dataset('tips')
+  df=df.dropna()
+  st.success("Loaded sample Dataset: 'tips'")
+else:
+  uploaded_file=st.sidebar.file_uploader("Upload tour CSV file", type=['csv'])
+  if uploaded_file:
+    df=pd.read_csv(uploaded_file)
+  else:
+    st.warning("Please upload a CSV file or use the example dataset")
+    st.stop()
